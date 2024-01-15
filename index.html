@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    #output {
+      margin-top: 20px;
+      font-size: 24px;
+    }
+    .main{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .keypressed{
+        box-shadow: 5px 10px 18px #888888;
+        font-weight: 700;
+        font-size: 36px;
+        padding-left: 7.5rem;
+        padding-right: 7.5rem;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .color{
+        color: rgb(91,188,122);
+        text-transform: capitalize;
+    }
+    .keycode{
+        box-shadow: 5px 10px 18px #888888;
+        font-weight: 700;
+        font-size: 85px;
+        padding: 1.5rem 0.2rem 1.5rem 0.2rem;
+        color: rgb(91,188,122);
+        width: 25% ;
+        display: flex;
+        justify-content: center;
+    }
+  </style>
+</head>
+<body>
+  <!-- <h1>Keycode Keyboard</h1> -->
+  <div id="output">Press any keyboard keys</div>
+
+  <script>
+    document.addEventListener('keydown', function(event) {
+      const outputElement = document.getElementById('output');
+    //   outputElement.textContent = "hi"
+      console.log(event);
+      let key = event.key;
+      if(event.key == " ")
+       key = "Backspace";
+      const keyCode = event.keyCode;
+
+      outputElement.innerHTML = `
+      <div class ="main">
+      <p class="keypressed">You Pressed <span class="color">${key}</span></p>
+      <div class="keycode">${keyCode}</div>
+      </div>
+      `;
+    });
+  </script>
+</body>
+</html>
